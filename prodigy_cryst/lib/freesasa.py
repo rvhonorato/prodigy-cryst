@@ -24,7 +24,7 @@ except ImportError as e:
     raise ImportError(e)
 
 from ..config import FREESASA_BIN, FREESASA_PAR
-from aa_properties import rel_asa
+from .aa_properties import rel_asa
 
 
 def freesasa_version():
