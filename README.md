@@ -2,24 +2,41 @@
 Collection of scripts to predict whether an interface in a protein-protein 
 complex is biological or crystallographic from its atomic coordinates.
 
-## Quick & Dirty Installation
-```bash
-git clone http://github.com/biopython/biopython.git
-cd biopython
-sudo python setup.py install # Alternatively, install locally but fix $PYTHONPATH
+## Installation
 
-wget http://freesasa.github.io/freesasa-1.0.tar.gz
+Clone the repository:
+```
+git clone http://github.com/haddocking/interface-classifier
+```
+
+Its easier with Anaconda:
+```
+conda create -n interface_classifier python=3.6
+conda activate interface_classifier
+pip install biopython
+pip install -U scikit-learn==0.21.3
+```
+
+Install freesasa v1.0
+```
+wget https://github.com/mittinatten/freesasa/releases/download/1.0/freesasa-1.0.tar.gz
 tar -xzvf freesasa-1.0.tar.gz
 cd freesasa-1.0
 ./configure && make && make install
+```
 
-pip3 install scikit-learn
+Edit `interface-classifier/prodigy_cryst/config.py`
 
-git clone http://github.com/haddocking/interface-classifier
+Example:
+```python
+# (Absolute) Paths to the freesasa binary and config files
+FREESASA_BIN = "/Users/rodrigo/software/freesasa-1.0/src/freesasa"
 
-# Edit the config.py to setup the paths to the freesasa binary and radii files
+# No need to set this if FreeSASA version is >= 2:
+FREESASA_PAR = "/Users/rodrigo/software/freesasa-1.0/share/naccess.config"
+```
 
-# Have fun!
+## Have fun!
 ```
 
 ## Usage
